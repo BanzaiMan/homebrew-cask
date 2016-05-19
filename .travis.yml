@@ -36,17 +36,6 @@ before_script:
 script:
   - . ci/travis/script.sh
 
-before_cache:
-  - mkdir $HOME/cache_diffs
-  - sort $CASHER_DIR/md5sums_before | uniq > $HOME/cache_diffs/md5sums_before.sorted
-  - md5deep -r $HOME/.gem | sort | uniq > $HOME/cache_diffs/md5sums_after
-  # - "diff -B $HOME/cache_diffs/md5sums_before.sorted $HOME/cache_diffs/md5sums_after | awk '/^[<>]/ {print $NF}' | sort | uniq"
-
-addons:
-  artifacts:
-    paths:
-      - $HOME/cache_diffs
-      - $CASHER_DIR
 
 notifications:
   email: false
