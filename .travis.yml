@@ -22,6 +22,7 @@ branches:
 cache:
   directories:
     - $HOME/.gem
+    - $HOME/.gem
 
 before_install:
   - . ci/travis/before_install.sh
