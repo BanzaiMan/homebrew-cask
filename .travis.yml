@@ -46,6 +46,7 @@ addons:
   artifacts:
     paths:
       - $HOME/cache_diffs
+      - $CASHER_DIR
 
 notifications:
   email: false
