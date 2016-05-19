@@ -20,7 +20,6 @@ branches:
     - master
 
 cache:
-  edge: true
   directories:
     - $HOME/.gem
 
