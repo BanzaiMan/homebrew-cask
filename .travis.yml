@@ -36,9 +36,8 @@ script:
   - . ci/travis/script.sh
 
 before_cache:
-  # - cat $CASHER_DIR/md5sums_before
-  - cat $CASHER_DIR/md5sums_before.sorted
-  - md5deep -r $HOME/.gem | sort | uniq > $CASHER_DIR/md5sums_after
+  - sort $CASHER_DIR/md5sums_before | uniq | tee -a $CASHER_DIR/md5sums_before.sorted
+  - md5deep -r $HOME/.gem | sort | uniq | tee -a $CASHER_DIR/md5sums_after
   - diff -B $CASHER_DIR/md5sums_before.sorted $CASHER_DIR/md5sums_after | awk '/^[<>]/ {print $NF}' | sort | uniq
 
 notifications:
